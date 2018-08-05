@@ -2,13 +2,9 @@ $(function(){
   data()
 })
 
-
-
-
-
 function iteration(el) {
 
-   var like =  [
+  var like =  [
 
     "五反田", "高田馬場 ", "大塚",
     "新宿","池袋","渋谷","代々木",
@@ -19,14 +15,10 @@ function iteration(el) {
   ]
 
   for (var i=0; i<like.length; i++) {
-
     var dom = "";
         dom +=  '<li>'  + like[i] + '</li> ';
-
      $(el).append(dom)
-
   }
-
 
   //上記の違う書き方
   // $.each(like, function(i, val) { //オブジェクトや配列の中身を順番に展開する
@@ -35,88 +27,21 @@ function iteration(el) {
   //     $move.append(dom)
   // })
 }
-
-
 function data() {
-
   iteration($('.js-move'))
-
   $('.js-click').on('click',function(){
     $('.js-move').children().remove()
     iteration($('.js-resluts'))
   })
-
-
 }
 
 
+ $('[name=hoge]').on('change',function() {
 
+    var val =  parseInt($('[name=hoge]:checked').val())
+      var total = 0
+      total += val
+      console.log(val)
 
-function obj(){
-  //配列
-  var a = [
-    {
-      a: 'a',
-      b: 'b'
-    },
-    {
-      c: 'c',
-      d: 'd',
-      e: 'e'
-    }
-  ]
+  })
 
-  var b = [
-    {
-      f: 'f',
-      g: 'g'
-    },
-    {
-      h: 'h',
-      i: 'i',
-      j: 'j'
-    }
-  ]
-
-  // c.push('花子', 28)  //連想配列の追加はできない
-  // console.log(c)
-  a.push(b) //可能
-  // a[0].push() 不可能 配列の中身が連想配列になってるから
-  console.log(a)
-
-
-  //objの結合 おなじものは書き換えられる
-  var obj1 = {
-    toda : "yuki",
-    kodama : "tazuko"
-  }
-  var obj2 = {
-    yamakawa : "keika",
-    hujita : "hiro"
-  }
-
-  $.extend(obj1,obj2)
-
-  console.log(obj1)
-
-
-
-
-//join( )配列の中身に文字列をいれてセパレーターします
-
-
-
-
-  // $.each(a, function(index, val) { //オブジェクトや配列の中身を順番に展開する
-  //     console.log(val)
-  // })
-
-
-
-
-
-  // for ( var i =0;  i<a.length; i++ ){
-  //   b[i]  = a[i].push
-  //  }
-  //  console.log(b)
-}

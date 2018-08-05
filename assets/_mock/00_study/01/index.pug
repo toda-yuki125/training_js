@@ -3,10 +3,10 @@ extends /_base/templates/pc/_layout.pug
 block vars
   -
     var viewport = "width=device-width, initial-scale=1.0";
-    var keywords = "きーわーど, キーワード";
-    var description = "pugテスト";
-    var canonical = "http://localhost:3333/test/";
-    var title = "javascript";
+    var keywords = "";
+    var description = "";
+    var canonical = "";
+    var title = "javascript練習問題1-50";
     var robots = "index, follow";
     var og = {
       title: title,
@@ -23,26 +23,6 @@ block script
 
 block body
     div.container
-      header.navi
-        h1.navi__title 体育館の料金
-      main
-        h1 基本使用料（2面、4時間）　4,800円
-        form
-          label
-            p
-              input(type="checkbox" name="hoge" value="2000")
-              | 夜間照明（2,000円）
-          label
-            p
-              input(type="checkbox" name="hoge" value="400")
-              | バレーボール用ネット×2面（400円）
-          label
-            p
-              input(type="checkbox" name="hoge" value="500")
-              | バレーボール×10個（500円）
-          input(type="text" value="4800")
-          button#submit(type="submit") 計算
-
 
 
 
