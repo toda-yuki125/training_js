@@ -1,0 +1,17 @@
+{
+  "list": [{
+      "url": "/test/test.html",
+      "page": "テストページ - 消してもいいよ",
+      "pattern": "",
+      "media": "PC"
+    }
+  ],
+  "hidden": [
+    "/_index/index.html",
+    "/_mock/sp/02_searchResults/mock.html",
+    "/_mock/_tmpl/test.html",
+    "/_mock/sp/04_hotelList/mock.html",
+    "/_mock/sp/11_Confirmation/mock.html",
+    "/_mock/sp/13_confirmation_allplan/mock.html"
+  ]
+}

@@ -1,0 +1,139 @@
+doctype html
+html( lang="ja" )
+  head
+    meta( charset="utf-8" )
+    meta( http-equiv="X-UA-Compatible" content="IE=edge" )
+    meta( name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" )
+    meta( name="description" content="モックリスト" )
+    title Mock List
+
+  body
+    div#app()
+      h1.pageTitle() Mock List
+      ul#mockList.mocklist()
+    style.
+      body,h2,ul {
+        margin: 0;
+        line-height: 1;
+        font-size: 14px;
+        font-weight: normal;
+      }
+      body {
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        -webkit-text-size-adjust: 100%;
+        -moz-text-size-adjust: 100%;
+        -ms-text-size-adjust: 100%;
+        text-size-adjust: 100%;
+      }
+      ul {
+        padding: 0;
+      }
+      li {
+        list-style: none;
+      }
+      .pageTitle {
+        margin: 20px 30px;
+        font-size: 24px;
+      }
+      .pageTitle > img {
+        width: 260px;
+      }
+      .title {
+        font-size: 22px;
+        padding: 10px 30px;
+        color: #fff;
+        background-color: #33CCCC;
+      }
+      .mockListChild > li {
+        padding-left: 15px;
+        border-bottom: 1px solid #ccc;
+      }
+      .mockListChild > li:first-child > .mockListRow {
+        font-weight: bold;
+      }
+
+      .mockListRow {
+        display: flex;
+      }
+      .mockListRow {
+        padding: 15px;
+      }
+      .mockListRow > li:nth-child(1) {
+        width: 25%;
+      }
+      .mockListRow > li:nth-child(2) {
+        text-align: center;
+        width: 10%;
+      }
+      .mockListRow > li:nth-child(3) {
+        text-align: center;
+        width: 20%;
+      }
+      .mockListRow > li:nth-child(4) {
+        width: 45%;
+      }
+
+      a {
+        color: #2489ce;
+        cursor: pointer;
+        text-decoration: none;
+      }
+      a:link {
+        color: #2489ce;
+      }
+      a:visited {
+        color: #2489ce;
+      }
+      a:hover {
+        text-decoration: underline;
+      }
+    script( src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" )
+    script( src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.4/lodash.min.js" )
+    script( type="text/html" id="tmpl" ).
+      <div>
+        <% _.each(data, function(item, i) { %>
+        <% if(item.list.length === 0) return; %>
+        <li>
+          <h2 class="title"><%= item.name %></h2>
+          <ul class="mockListChild">
+            <li>
+              <ul class="mockListRow">
+                <li>ページ名</li>
+                <li>パターン</li>
+                <li>デバイス</li>
+                <li>URL</li>
+              </ul>
+            </li>
+            <% _.each(item.list, function(item2, i2) { %>
+              <li>
+                <ul class="mockListRow">
+                  <li><%= item2.page %></li>
+                  <li><%= item2.pattern ? item2.pattern : "-" %></li>
+                  <li><%= item2.media %></li>
+                  <% var url = item2.url.replace('index.html', '') %>
+                  <li><a href="<%= url %>" target="_blank"><%= url %></a></li>
+                </ul>
+              </li>
+            <% }); %>
+          </ul>
+        </li>
+        <% }); %>
+      </div>
+    script().
+      $(function() {
+        var tmpl = _.template($('#tmpl').html().replace(/^[^\/]+\/\*!?/, '').replace(/\*\/[^\/]+$/, '').replace(/[\n\r]/g, '').replace(/[\x20\t]{2,}/g, ''));
+        $.ajax({
+          type: "GET",
+          url: '/_index/data/mocklist.json',
+          dataType: "json",
+          timeout: 99999
+        }).done(function(data){
+          console.log(data);
+          $('#mockList').html(tmpl({'data': data}));
+        }).fail(function(data){
+          console.log('error',data);
+        }).always(function(data){
+          console.log('always called');
+        });
+      });

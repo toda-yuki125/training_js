@@ -1,0 +1,39 @@
+
+extends /_base/templates/pc/_layout.pug
+
+block vars
+  -
+    var viewport = "width=device-width, initial-scale=1.0";
+    var keywords = "きーわーど, キーワード";
+    var description = "pugテスト";
+    var canonical = "http://localhost:3333/test/";
+    var title = "pugテスト";
+    var robots = "index, follow";
+    var og = {
+      title: title,
+      type: 'website',
+      url: canonical,
+      site_name: title,
+      description: description
+    };
+block head
+  link(rel="stylesheet" href="/dp/jr/u/test0011/css/test.css" type="text/css")
+  script(src="/dp/jr/u/test0011/js/test.js")
+block body
+    header.js-header
+      h2.header-txt header(clickするとconsoleに値が出ます)
+    .main
+      .main__title.
+        MainTitle
+      ui.clearfix
+        -for(var i=1; i<4; i++)
+          li.item--num itemNum#{i}
+    form(name="formJr" method="post")#searchPanel.searchPanel
+      input(type="text" name="text")
+      label checkBoxA
+        input(type="radio" name="radio" value="A")
+      label checkBoxB
+        input(type="radio" name="radio" value="B")
+      input(type="button" value="検索")
+    footer
+      a(href="http://www.recruit-lifestyle.co.jp/english/" target="_blank") (C) Recruit Lifestyle Co.,Ltd.

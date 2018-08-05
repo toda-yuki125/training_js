@@ -1,0 +1,58 @@
+extends /_base/templates/pc/_layout.pug
+
+block vars
+  -
+    var viewport = "width=device-width, initial-scale=1.0";
+    var keywords = "きーわーど, キーワード";
+    var description = "pugテスト";
+    var canonical = "http://localhost:3333/test/";
+    var title = "javascript";
+    var og = {
+      title: title,
+      type: 'website',
+      url: canonical,
+      site_name: title,
+      description: description
+    };
+
+block head
+  link(rel="stylesheet" href="style.css" type="text/css")
+block script
+  script(src="script.js")
+
+block body
+    div.container
+      header.navi
+        h1.navi__title Hello World
+        p.navi__sub  scriptscript
+      div.favorite
+        .favorite__nowBox
+
+          //- - var moveBox = [ "たこやき", "いちごタルト", "タン塩", "チーズケーキ","ぶどう","アボカド","明太子","モッツァレラ","生春巻き","生姜","湯葉" ]
+          //- ul.js-move
+          //-   - for( var i=0;i<1;i++)
+          //-     each now in moveBox
+          //-       li=now
+          ul.js-move
+        .favorite__moveBtn
+          a.js-click(href="javascript:void(0)") click
+        .favorite__nextBox
+          ul.js-resluts
+      div.calendar
+        .calendar__trigger
+          a(href="javascript:void(0)") calendar
+      div.formArea
+        form
+          input(type="text")
+          input(type="text")
+          input(type="submit")
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,18 @@
+//-
+  全てのページのベースとなるhtml
+  extendして変数指定をおこなってください
+  指定内容はpartials内のファイルを参照
+  以下のblock内で開発を行ってください
+  ・block vars
+  ・block head
+  ・block body
+doctype html
+block vars
+html( prefix="og:http://ogp.me/ns#" )
+  head
+    include /_base/templates/partials/_head
+    block head
+
+    block script
+  body
+    block body

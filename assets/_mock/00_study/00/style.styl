@@ -1,0 +1,66 @@
+@require 'nib'
+@require '../../../_base/styles/pc/_default.styl'
+
+.container
+  width 950px
+  margin 0 auto
+
+.navi
+  padding 20px
+  background-color #d3e0f7
+  clearfix()
+
+.navi__title
+  color #fffcf0
+  font-size 16px
+  float left
+
+.navi__sub
+  float right
+  color #fffcf0
+
+.favorite
+  margin-top 20px
+
+$moveBox
+  width 500px
+  border solid 1px #dddfe6
+  max-height 310px
+  overflow-y scroll
+
+.favorite__nowBox
+  @extends $moveBox
+  min-height 100px
+
+.favorite__nextBox
+  @extends $moveBox
+  margin-top 10px
+  height 310px
+
+.favorite__moveBtn
+  margin-top 10px
+  width 100px
+  background-color #d3e0f7
+  border-radius 4px
+  line-height 18px
+  > a
+    text-decoration none
+    text-align center
+    display block
+    color #fff
+
+.calendar
+  margin-top 20px
+
+.calendar__trigger
+  width 100px
+  background-color #d3e0f7
+  border-radius 4px
+  line-height 18px
+  > a
+    text-decoration none
+    text-align center
+    display block
+    color #fff
+
+

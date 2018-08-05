@@ -1,0 +1,32 @@
+//- X-UA-Compatible IE互換モード対策
+meta( http-equiv="X-UA-Compatible" content="IE=edge" )
+//- charset 文字コード
+meta( charset="utf-8" )
+//- viewport undefinedならばデフォルト設定
+if !viewport
+  - var viewport = "width=device-width, initial-scale=1.0, user-scalable=no"
+meta( name="viewport" content=`${viewport}` )
+//- format-detection 電話番号、アドレス、住所の誤判定によるアクティベーションを防ぐ
+meta( name="format-detection" content="telephone=no, email=no, address=no" )
+//- keywords
+meta( name="keywords" content=`${keywords}` )
+//- description
+meta( name="description" content=`${description}` )
+//- canonical 絶対パスでURLを指定
+link( rel="canonical" href=`${canonical}` )
+//- title
+title() #{title}
+//- OGP
+if og
+  if og.title
+    meta( property="og:title" content=`${og.title}` )
+  if og.type
+    meta( property="og:type" content=`${og.type}` )
+  if og.url
+    meta( property="og:url" content=`${og.url}` )
+  if og.image
+    meta( property="og:image" content=`${og.image}` )
+  if og.site_name
+    meta( property="og:site_name"  content=`${og.site_name}` )
+  if og.description
+    meta( property="og:description" content=`${og.description}` )
